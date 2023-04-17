@@ -108,7 +108,7 @@ def get_dealer_details(request, dealer_id):
 
         return render(request, 'djangoapp/dealer_details.html', context)
 
-# Create a `add_review` view to submit a review
+# View to submit a new review
 def add_review(request, dealer_id):
     # User must be logged in before posting a review
     if request.user.is_authenticated:
@@ -158,4 +158,5 @@ def add_review(request, dealer_id):
         # If user isn't logged in, redirect to login page
         print("User must be authenticated before posting a review. Please log in.")
         return redirect("/djangoapp/login")
+
 
