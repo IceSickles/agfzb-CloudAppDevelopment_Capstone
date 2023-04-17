@@ -30,11 +30,12 @@ class CarModel(models.Model):
     TRUCK = "Truck"
     BIKE = "Bike"
     SCOOTER = "Scooter"
+    ELECTRIC = "Electric"
     OTHER = "Other"
     CAR_CHOICES = [(SEDAN, "Sedan"), (SUV, "SUV"), (WAGON, "Station wagon"), (SPORT, "Sports Car"),
                    (COUPE, "Coupe"), (MINIVAN, "Mini van"), (VAN,
                                                              "Van"), (PICKUP, "Pick-up truck"),
-                   (TRUCK, "Truck"), (BIKE, "Motor bike"), (SCOOTER, "Scooter"), (OTHER, 'Other')]
+                   (TRUCK, "Truck"), (BIKE, "Motor bike"), (SCOOTER, "Scooter"), (ELECTRIC, "Electric"), (OTHER, 'Other')]
     model_type = models.CharField(
         null=False, max_length=15, choices=CAR_CHOICES, default=SEDAN)
 
