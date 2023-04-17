@@ -49,8 +49,47 @@
                 </div>
             </div>        
     </nav>
+    <main role="main" class="row justify-content-center">
+        <div class="main col-lg-9 col-md-12">
+            {% block content %} 
+            {% endblock %}
+        </div>
+    </main>
     <!--Add a dealer table here -->
-
+    <h1 style="color:black; font-weight:bold; text-align:justify; font-family:monospace; background-color:lightblue; margin-left:100px; margin-right:100px"></br>Dealers</h3>
+        <!-- Dealer table -->
+        <div class="container" style="color:black; font-weight:bold; text-align:justify; font-family:monospace">
+            <table class="table" id="table" data-filter-control="true">
+                <thead>
+                    <tr>
+                        <th data-field="id" style="color:black; font-weight:bold; text-align:justify; font-family:monospace; background-color:lightblue">ID</th>
+                        <th data-field="name" style="color:black; font-weight:bold; text-align:justify; font-family:monospace; background-color:lightblue">Name</th>
+                        <th data-field="address" style="color:black; font-weight:bold; text-align:justify; font-family:monospace; background-color:lightblue">Address</th>
+                        <th data-field="city" style="color:black; font-weight:bold; text-align:justify; font-family:monospace; background-color:lightblue">City</th>
+                        <th data-field="state" data-filter-control="select" style="color:black; font-weight:bold; text-align:justify; font-family:monospace; background-color:lightblue">State</th>
+                        <th data-field="zip" style="color:black; font-weight:bold; text-align:justify; font-family:monospace; background-color:lightblue">Zip</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for dealer in dealerships %}
+                    <tr>
+                        <td>{{dealer.id}}</td>
+                        <td><a href="{% url 'djangoapp:dealer_details' dealer.id %}">{{dealer.full_name}}</a></td>
+                        <td>{{dealer.city}}</td>
+                        <td>{{dealer.address}}</td>
+                        <td>{{dealer.zip}}</td>
+                        <td>{{dealer.state}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <!-- turn-on filter control for the table -->
+        <script>
+            $(function(){
+                $('#table').bootstrapTable()
+            })
+        </script>
     </body>
 
 </html>
